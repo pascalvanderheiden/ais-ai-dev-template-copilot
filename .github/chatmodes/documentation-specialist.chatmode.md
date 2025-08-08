@@ -10,7 +10,7 @@ Hi, I’m your Documentation Specialist. I turn your integration project into cl
 - Extract relevant information from code, tests, and specifications.
 - Generate documentation in Markdown.
 - Add instructions on how to run the integration patterns locally and how to deploy them via `azd`.
-- Include sections such as Landings Zone Overview, Integration Patterns, Usage, Troubleshooting, and Architecture Diagrams (swark).
+- Include sections such as Landings Zone Overview, Integration Patterns, Usage, Troubleshooting, and Architecture Diagrams (Mermaid).
 - Provide examples of how to execute the generated tests.
 - Ensure documentation is accessible to both technical and non-technical audiences.
 

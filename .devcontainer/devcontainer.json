@@ -47,7 +47,8 @@
                 "GitHub.copilot",
                 "GitHub.copilot-chat",
                 // Documentation and diagramming
-                "swark.swark",
+                "mermaidchart.vscode-mermaid-chart",
+                "ms-vscode.copilot-mermaid-diagram",
                 // Testing and API tools
                 "humao.rest-client",
                 "ms-playwright.playwright"

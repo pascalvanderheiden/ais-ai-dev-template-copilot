@@ -20,7 +20,7 @@ Azure Integration Services development workflow using specialized agents to crea
 - Connect to Azure MCP Server using provided subscription and tag filters.
 - Discover deployed Azure Integration Services, AppGW, Frontdoor, App Insights, Log Analytics, Azure Monitor, Key Vault, ASEv3, and App Service Plans.
 - Included detailed information about the Network Topology, including VNETs, subnets, and private endpoints.
-- Generate architecture diagrams using Swark and embed that into the IDD.
+- Generate architecture diagrams using Mermaid and embed that into the IDD.
 - Produce a static document summarizing the findings.
 
 **Output:**
@@ -45,7 +45,7 @@ Generate the IDD for the discovered architecture.
 - Select appropriate design patterns and protocols.
 - Include security architecture and compliance considerations.
 - Include field mappings between source and target systems.
-- Generate Swark diagrams to explain the integration flows in the IRD.
+- Generate Mermaid diagrams to explain the integration flows in the IRD.
 
 **Output:**
 - `/specs/docs/IRD.md`: Integration Requirement Document in Markdown format.

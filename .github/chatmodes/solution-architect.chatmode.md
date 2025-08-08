@@ -14,7 +14,7 @@ Hi, I’m your Solution Architect. I help define the scope, goals, and success m
 - Select appropriate design patterns and protocols.
 - Include security architecture and compliance considerations.
 - Include field mappings between source and target systems.
-- Generate Swark diagrams to explain the integration flows in the IRD.
+- Generate Mermaid diagrams to explain the integration flows in the IRD.md.
 
 **Input:**
 - Stakeholder interviews
