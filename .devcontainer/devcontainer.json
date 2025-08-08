@@ -1,0 +1,65 @@
+{
+    "name": "Azure Integration Services devcontainer",
+    // See https://github.com/devcontainers/images/tree/main/src/dotnet for list of supported versions.
+    "image": "mcr.microsoft.com/devcontainers/dotnet:8.0",
+    "features": {
+        // Core development tools
+        "ghcr.io/devcontainers/features/node:1": {
+            "nodeGypDependencies": true,
+            "version": "lts"
+        },
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/dotnet:2": {},
+        "ghcr.io/devcontainers/features/powershell:1": {},
+        // Azure tools
+        "ghcr.io/devcontainers/features/azure-cli:1": {
+            "installBicep": true
+        },
+        "ghcr.io/azure/azure-dev/azd:latest": {},
+        "ghcr.io/jlaundry/devcontainer-features/azure-functions-core-tools:1": {},
+        // GitHub tools
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "postCreateCommand": [
+        "bash",
+        "-c",
+        "npm install -g @playwright/mcp@latest @azure/mcp@latest && npx playwright install"
+    ],
+    "customizations": {
+        "vscode": {    
+            "extensions": [
+                // Azure extensions
+                "ms-vscode.azurecli",
+                "ms-azuretools.azure-dev",
+                "ms-azuretools.vscode-bicep",
+                "ms-azuretools.vscode-apimanagement",
+                "ms-azuretools.vscode-azurefunctions",
+                "ms-azuretools.vscode-logicapps",
+                "ms-azuretools.vscode-azurestorage",
+                "ms-vscode.vscode-node-azure-pack",
+                "ms-azuretools.vscode-azure-mcp-server",
+                "ms-azuretools.vscode-azure-github-copilot",
+                "Azurite.azurite",
+                // .NET extensions
+                "ms-dotnettools.csharp",
+                "ms-dotnettools.csdevkit",
+                // GitHub and AI extensions
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                // Documentation and diagramming
+                "swark.swark",
+                // Testing and API tools
+                "humao.rest-client",
+                "ms-playwright.playwright"
+            ]
+        }
+    },
+    "forwardPorts": [8080, 7071, 3000, 4200],
+    "remoteUser": "vscode",
+    "hostRequirements": {
+        "memory": "8gb",
+        "cpus": 4
+    },
+    "mounts": [
+        "source=${localWorkspaceFolder}/.vscode,target=/workspaces/${localWorkspaceFolderBasename}/.vscode,type=bind,consistency=cached"
+    ]}
