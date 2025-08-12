@@ -29,19 +29,13 @@ flowchart TD
 
 ## Agent Prompt Files
 
-The template includes specialized prompt files in `.github/prompts/` that enable GitHub Copilot to act as different AI agents throughout the development workflow. Each prompt file is designed to focus Copilot on specific tasks and responsibilities.
+These prompts are designed to be used sequentially, with each agent building upon the work of the previous one. The prompts are stored in the `.github/prompts/` directory and are structured to ensure a smooth workflow.
 
 ### Available Prompt Files
 
 | File | Agent Role | Purpose |
 |------|------------|---------|
 | `0-chatmodes-model-router.prompt.md` | **Model Router** | Determines the optimal AI model for each development task |
-| `1-discovery-analyst.prompt.md` | **Discovery Analyst** | Scans Azure subscription to discover integration services and generate IDD |
-| `2-solution-architect.prompt.md` | **Solution Architect** | Creates Integration Requirement Documents based on business needs |
-| `3-1-agent.prompt.md` | **Implementation Agent** | Manages development planning and GitHub issue creation |
-| `3-2-0-integration-developer.prompt.md` | **Integration Developer** | Develops code using AZD templates and Bicep |
-| `3-2-1-test-engineer.prompt.md` | **Test Engineer** | Creates and executes comprehensive tests |
-| `3-2-2-documentation-specialist.md` | **Documentation Specialist** | Generates final documentation and guides |
 
 ### How to Use Agent Prompts
 
@@ -55,46 +49,6 @@ The template includes specialized prompt files in `.github/prompts/` that enable
    ```
    
    This analyzes your tasks and assigns the most suitable AI model for each agent role based on GitHub's recommended models by task. This ensures optimal performance and accuracy for each development phase.
-
-#### Agent Workflow Usage
-
-2. **Discovery Phase**:
-   ```
-   @.github/prompts/1-discovery-analyst.prompt.md
-   ```
-   
-3. **Architecture Phase**:
-   ```
-   @.github/prompts/2-solution-architect.prompt.md
-   ```
-
-4. **Implementation Phase**:
-   ```
-   @.github/prompts/3-1-agent.prompt.md
-   @.github/prompts/3-2-0-integration-developer.prompt.md
-   ```
-
-5. **Testing Phase**:
-   ```
-   @.github/prompts/3-2-1-test-engineer.prompt.md
-   ```
-
-6. **Documentation Phase**:
-   ```
-   @.github/prompts/3-2-2-documentation-specialist.md
-   ```
-
-### Best Practices
-
-- **Sequential Execution**: Follow the numbered sequence for optimal results
-- **Context Preservation**: Each agent builds upon the work of previous agents
-- **Model Optimization**: The Model Router ensures each agent uses the most appropriate AI model
-- **Azure Integration**: All prompts are designed to work with Azure Integration Services and the AZD template structure
-- **Autonomous Operation**: Each agent is designed to work independently while maintaining workflow continuity
-
-### Chat Modes Integration
-
-The prompts work in conjunction with the chat modes defined in `.github/chatmodes/` to provide context-aware assistance throughout the development lifecycle.
 
 ## Technical Stack
 
