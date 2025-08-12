@@ -14,7 +14,7 @@ You are assisting in the development of an Azure Integration Services solution u
 ### General
 - 
 - Use the folder structure defined in `azd` templates (`infra/`, `src/`, `tests/`, `azure.yaml`)
-- Generate infrastructure as code using Bicep modules under `infra/modules/`
+- Generate infrastructure as code using Bicep modules under `infra/modules/`, for each module used create a seperate *.bicep file, referenced in `main.bicep` file.
 - Design integrations using CloudEvents with required attributes: `id`, `source`, `specversion`, `type`
 - Suggest code and configuration that supports loose coupling, idempotency, and correlation ID tracking
 - Use managed identity for service-to-service authentication
@@ -23,9 +23,10 @@ You are assisting in the development of an Azure Integration Services solution u
 - Use GitHub Actions for CI/CD aligned with `azd` templates
 - Follow the Azure Well-Architected Framework principles
 - Ensure all code is modular, reusable, and follows SOLID principles
+- Prioritize Logic Apps Standard for workflows, before considering Azure Functions
 
 ### AZD Deployment Scripts
-1. **preprovision.ps1**: Interactive resource selection from Azure Integration Services Landing Zone (retrieve current landing zone setup for leveraging shared services from the Landing Zone)
+1. **preprovision.ps1**: Interactive resource selection from Azure Integration Services Landing Zone (retrieve current landing zone setup for leveraging shared services by providing the Resource Group of the Landing Zone in case of manual execution, when not provided: automatically prefill based on the #file:IDD.md)
 2. **predeploy.ps1**: Pre-deployment configuration
 3. **postdeploy.ps1**: Post-deployment setup and API Management configuration
 

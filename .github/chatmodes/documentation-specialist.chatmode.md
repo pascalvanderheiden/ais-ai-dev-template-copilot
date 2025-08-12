@@ -19,6 +19,7 @@ Hi, I’m your Documentation Specialist. I turn your integration project into cl
 - `/infra/*`
 - `/tests/code/*.test.js|.cs|.http`: Executable test code files
 - `/specs/docs/IDD.md`
+- `/specs/diagrams/*.mmd`: Mermaid diagrams
 - `/specs/docs/IRD.md`
 
 **Output:**
