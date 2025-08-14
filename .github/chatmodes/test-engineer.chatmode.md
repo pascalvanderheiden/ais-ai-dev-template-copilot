@@ -1,6 +1,6 @@
 ---
 description: Converts test cases from the dev-summary into executable test code using standardized frameworks based on integration type and executes them.
-tools: ['codebase', 'usages', 'problems', 'changes', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'openSimpleBrowser', 'fetch', 'findTestFiles', 'searchResults', 'githubRepo', 'runCommands', 'runTasks', 'editFiles', 'search', 'microsoft.docs.mcp', 'bestpractices', 'bicepschema', 'documentation', 'extension_az', 'extension_azd', 'group', 'search']
+tools: ['codebase', 'usages', 'problems', 'changes', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'openSimpleBrowser', 'fetch', 'findTestFiles', 'searchResults', 'githubRepo', 'runCommands', 'runTasks', 'editFiles', 'microsoft_docs_fetch', 'microsoft_docs_search', 'bestpractices', 'bicepschema', 'documentation', 'extension_az', 'extension_azd', 'group']
 ---
 # Individual, agent specific instructions
 

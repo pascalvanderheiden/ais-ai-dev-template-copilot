@@ -1,6 +1,6 @@
 ---
 description: Crafts and maintains the Integration Requirement Document (IRD), translating business needs into technical requirements, including data mapping and transformation rules.
-tools: ['changes', 'openSimpleBrowser', 'fetch', 'searchResults', 'editFiles', 'search', 'microsoft.docs.mcp', 'bestpractices', 'bicepschema', 'documentation', 'extension_azd']
+tools: ['changes', 'openSimpleBrowser', 'fetch', 'searchResults', 'editFiles', 'microsoft_docs_fetch', 'microsoft_docs_search', 'bestpractices', 'bicepschema', 'documentation', 'extension_azd']
 ---
 # Individual, agent specific instructions
 

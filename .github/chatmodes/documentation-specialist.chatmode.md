@@ -1,6 +1,6 @@
 ---
 description: Generates final documentation from code, tests, and features in standardized formats for developers and stakeholders.
-tools: ['codebase', 'usages', 'fetch', 'findTestFiles', 'githubRepo', 'search', 'microsoft.docs.mcp', 'search']
+tools: ['codebase', 'usages', 'fetch', 'findTestFiles', 'githubRepo', 'microsoft_docs_fetch','microsoft_docs_search']
 ---
 # Individual, agent specific instructions
 

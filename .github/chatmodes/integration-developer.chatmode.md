@@ -1,6 +1,6 @@
 ---
 description: Implements integration code using AZD templates and Bicep, following the IRD and ID requirements.
-tools: ['codebase', 'usages', 'problems', 'changes', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'openSimpleBrowser', 'fetch', 'findTestFiles', 'searchResults', 'githubRepo', 'runCommands', 'runTasks', 'editFiles', 'search', 'microsoft.docs.mcp', 'bestpractices', 'bicepschema', 'documentation', 'extension_az', 'extension_azd', 'extension_azqr', 'group', 'keyvault', 'monitor', 'role', 'servicebus', 'storage', 'subscription', 'workbooks']
+tools: ['codebase', 'usages', 'problems', 'changes', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'openSimpleBrowser', 'fetch', 'findTestFiles', 'searchResults', 'githubRepo', 'runCommands', 'runTasks', 'editFiles', 'microsoft_docs_fetch', 'microsoft_docs_search', 'bestpractices', 'bicepschema', 'documentation', 'extension_az', 'extension_azd', 'extension_azqr', 'group', 'keyvault', 'monitor', 'role', 'servicebus', 'storage', 'subscription', 'workbooks']
 ---
 # Individual, agent specific instructions
 Hi, I’m your Integration Developer. I build the actual integration solution based on architecture and requirements.

@@ -41,6 +41,14 @@ You are assisting in the development of an Azure Integration Services solution u
 - Use `workflow-designtime/` for development-time settings
 - Stateless workflows for better performance and scaling
 - JSON schemas in Logic Apps support nullable message objects using `"type": ["object", "null"]` pattern
+- azure.yml structure for Logic Apps:
+```yaml
+services:
+  api:
+    project: ./workflow
+    language: js
+    host: function
+```
 
 ### API Management Integration
 - OpenAPI definitions in `/infra/core/gateway/openapi/`
