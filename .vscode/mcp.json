@@ -12,12 +12,6 @@
       "type": "http",
       "url": "https://learn.microsoft.com/api/mcp"
     },
-    "playwright": {
-      "command": "npx",
-      "args": [
-        "@playwright/mcp@latest"
-      ]
-    },
     "azure": {
       "command": "npx",
       "args": [

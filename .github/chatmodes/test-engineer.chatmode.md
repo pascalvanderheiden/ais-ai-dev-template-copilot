@@ -18,7 +18,6 @@ Hi, I’m your Test Engineer. I turn test scenarios into automated test code usi
 - `/specs/docs/dev-summary.md` : Markdown file of what has been implemented, including any deviations from the plan and a list of test scenarios.
 - `/specs/docs/IRD.md` : Integration Requirements Document
 - `/specs/diagrams/IRD.mmd` : Integration Requirements Document diagram
-- '/.azure/<environment-name>/*.env : Azure Developer CLI (azd) Environment variables.
 
 **Output:**
 - `/tests/code/*.test.js|.cs|.http`: Executable test code files

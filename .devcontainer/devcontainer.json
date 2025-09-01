@@ -14,24 +14,20 @@
     "postCreateCommand": [
         "bash",
         "-c",
-        "npm install -g @playwright/mcp @azure/mcp azure-functions-core-tools@4 && npx playwright install"
+        "npm install -g @azure/mcp azure-functions-core-tools@4"
     ],
     "customizations": {
         "vscode": {    
             "extensions": [
                 // Azure extensions
                 "ms-vscode.azurecli",
-                "ms-azuretools.azure-dev",
                 "ms-azuretools.vscode-bicep",
                 "ms-azuretools.vscode-apimanagement",
                 "ms-azuretools.vscode-azurefunctions",
                 "ms-azuretools.vscode-logicapps",
                 "ms-azuretools.vscode-azurestorage",
                 "ms-vscode.vscode-node-azure-pack",
-                // MCP Server extensions
                 "ms-azuretools.vscode-mcp",
-                "ms-azuretools.vscode-azure-mcp-server",
-                "ms-azuretools.vscode-azure-github-copilot",
                 // GitHub and AI extensions
                 "GitHub.copilot",
                 "GitHub.copilot-chat",
