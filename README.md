@@ -15,8 +15,10 @@ flowchart TD
     A[🕵️ Discovery Analyst<br/>Generates IDD] --> B[📋 Solution Architect<br/>Creates IRD]
     B --> C[🔧 Agent<br/>Creates dev-plan, creating and assigning issues to GitHub Coding Agent]
     B --> D[🔧 Integration Developer<br/>Develops code using AZD templates and Bicep]
-    D --> E[🔍 Test Engineer<br/>Creates tests, executes & reports the results]
+    C --> E[🔍 Test Engineer<br/>Creates tests, executes & reports the results]
     E --> F[📚 Documentation Specialist<br/>Generates Final Docs]
+    D --> G[🔍 Test Engineer<br/>Creates tests, executes & reports the results]
+    G --> H[📚 Documentation Specialist<br/>Generates Final Docs]
 ```
 
 ### Agents
@@ -35,29 +37,24 @@ These prompts are designed to be used sequentially, with each agent building upo
 
 | File | Agent Role | Purpose |
 |------|------------|---------|
-| `0-chatmodes-model-router.prompt.md` | **Model Router** | Determines the optimal AI model for each development task |
+| `0-assign-model-to-chatmodes.prompt.md` | **Model Router** | Assigns the most suitable model to each chat mode based on GitHub docs |
+| `1-discovery-analyst.prompt.md` | **Discovery Analyst** | Scans Azure subscription (by tag) and generates the IDD |
+| `2-solution-architect.prompt.md` | **Solution Architect** | Analyzes the IDD and produces the IRD for a specified pattern |
+| `3-1-0-agent-dev-plan-and-issues.prompt.md` | **Implementation Agent (Planning)** | Generates a dev plan, creates GitHub Issues and an Epic |
+| `3-2-0-integration-developer.prompt.md` | **Integration Developer** | Implements code (src) and infra (infra) per IRD/IDD and updates plan/summary |
+| `3-2-1-test-engineer.prompt.md` | **Test Engineer** | Generates and runs tests; reports results |
+| `3-2-2-documentation-specialist.prompt.md` | **Documentation Specialist** | Generates comprehensive project documentation for developers and stakeholders |
 
-### How to Use Agent Prompts
-
-#### Prerequisites: Model Router Setup
-
-**⚠️ Important**: Always start with the Model Router prompt before using other agents.
-
-1. **First, run the Model Router** to determine optimal models:
-   ```
-   @.github/prompts/0-chatmodes-model-router.prompt.md
-   ```
-   
-   This analyzes your tasks and assigns the most suitable AI model for each agent role based on GitHub's recommended models by task. This ensures optimal performance and accuracy for each development phase.
+**⚠️ Important**: Always start with `0-assign-model-to-chatmodes.prompt.md` (Model Router) before using other agents or prompts.
 
 ## Technical Stack
 
 - **Reference Landing Zone**: [azd-ais-lza](https://github.com/pascalvanderheiden/azd-ais-lza)
-- **Structure**: Azure Developer CLI (`azd`) templates
+- **Structure**: Implement the integration code in /src/* and infrastructure code in /infra/*. 
 - **Event Model**: CloudEvents v1.0+ specification
 - **Core Services**: API Management, Logic Apps, Azure Functions, Service Bus, Event Grid
 - **Infrastructure**: Bicep modules with managed identity and private endpoints
-- **CI/CD**: GitHub Actions aligned with AZD templates
+- **CI/CD**: GitHub Actions
 
 ## Project Structure
 
@@ -86,7 +83,6 @@ The template includes a comprehensive MCP configuration (`.vscode/mcp.json`) tha
 - **Context7** (`https://mcp.context7.com/mcp`) - Provides access to library documentation and code examples
 - **GitHub** (`https://api.githubcopilot.com/mcp`) - Enables GitHub integration for issue management, PR creation, and repository operations
 - **Microsoft Docs** (`https://learn.microsoft.com/api/mcp`) - Access to official Microsoft and Azure documentation
-- **Playwright** (`@playwright/mcp@latest`) - Web automation and testing capabilities
 - **Azure** (`@azure/mcp@latest`) - Azure resource management and deployment operations
 
 ### Purpose in Agent Workflow
@@ -113,13 +109,15 @@ This setup ensures that AI agents have the necessary tools and context to perfor
 
 1. **Prerequisites**
    - Azure CLI
-   - Azure Developer CLI (azd)
-   - PowerShell
-   - GitHub account with Copilot access
+   - GitHub CLI (`gh`)
+   - PowerShell Core
+   - GitHub Account for access to MCP server and GitHub Copilot Coding Agent
+   - Azure Account for discovery, deployment and access to MCP server
+   - Azure Integration Services Landing Zone setup (optional but recommended)
 
 2. **Initialize Project**
    ```powershell
-   azd init --template https://github.com/pascalvanderheiden/ais-ai-dev-template-copilot
+   gh repo create my-ais-project --template pascalvanderheiden/ais-ai-dev-template-copilot --private --clone
    ```
 
 3. **Configure Environment**
@@ -157,6 +155,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Related Resources
 
 - [Azure Integration Services Landing Zone](https://github.com/pascalvanderheiden/azd-ais-lza)
-- [Azure Developer CLI Documentation](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/)
 - [CloudEvents Specification](https://github.com/cloudevents/spec)
 - [Azure Well-Architected Framework](https://docs.microsoft.com/en-us/azure/architecture/framework/)

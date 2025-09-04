@@ -27,6 +27,7 @@
                 "ms-azuretools.vscode-logicapps",
                 "ms-azuretools.vscode-azurestorage",
                 "ms-vscode.vscode-node-azure-pack",
+                "apidev.azure-api-center",
                 "ms-azuretools.vscode-mcp",
                 // GitHub and AI extensions
                 "GitHub.copilot",

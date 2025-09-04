@@ -1,0 +1,10 @@
+{
+    "chat.mcp.serverSampling": {
+        "ais-ai-dev-template-copilot/.vscode/mcp.json: azure": {
+            "allowedDuringChat": true
+        }
+    },
+    "chat.mcp.autostart": "newAndOutdated",
+    "chat.agent.maxRequests": 100,
+    "chat.tools.autoApprove": true
+}

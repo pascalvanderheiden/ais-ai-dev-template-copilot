@@ -5,13 +5,16 @@ You are assisting in the development of an Azure Integration Services solution u
 
 ## Technical Stack
 - Reference Landing Zone: [azd-ais-lza](https://github.com/pascalvanderheiden/azd-ais-lza)
-- Developing Logic Apps: [Logic Apps documentation](https://learn.microsoft.com/en-us/azure/logic-apps/create-standard-workflows-visual-studio-code)
-- Developing Azure Functions locally: [Azure Functions documentation](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-local?pivots=programming-language-csharp)
-- Infrastructure as Code: [Bicep documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview)
-- Event model: [CloudEvents v1.0+ specification](https://github.com/cloudevents/spec)
 - Core services: API Management, Logic Apps, Azure Functions, Service Bus, Event Grid
 - Authentication: Azure Managed Identity
+- Infrastructure as Code: Bicep
+- CI/CD: GitHub Actions
 - Coding language: C#
+- Event Model: CloudEvents v1.0+ specification
+- Network: Private Endpoints and VNet Integration
+
+## Documentation Guidelines
+- Use Mermaid syntax for diagrams, exclude `()` in node names
 
 ## Developer Guidelines
 
@@ -30,42 +33,31 @@ You are assisting in the development of an Azure Integration Services solution u
 - Prioritize Logic Apps Standard for workflows, before considering Azure Functions
 
 ### Bicep Infrastructure Patterns
-- **Resource Token**: `${abbrs.resourceType}${resourceToken}` for unique naming
-- **Cross-Resource Group References**: Integration Pattern deploys to new RG but references existing Landing Zone resources
-- **Private DNS Zone Management**: Creates and links private DNS zones for private endpoints
-
-### Logic Apps Structure
-- Located in `src/workflow/` directory
-- Each workflow has its own folder with `workflow.json`
-- Use `workflow-designtime/` for development-time settings
-- Stateless workflows for better performance and scaling
-- JSON schemas in Logic Apps support nullable message objects using `"type": ["object", "null"]` pattern
-
-### API Management Integration
-- OpenAPI definitions in `/infra/modules/gateway/openapi/`
-- Policy templates in `/infra/modules/gateway/policies/` with placeholder replacement
-- Policies handle authentication, routing, and parameter extraction
-- Backend service configuration points to Logic Apps Standard with SAS tokens
+- `${abbrs.resourceType}${resourceToken}` for unique naming of resources
+- Use `existing` keyword to reference resources in the landing zone
+- Integration Pattern deploys to new RG but utilzes resources from the discovered Azure Integration Services Landing Zone
+- Each module in `infra/modules/` with parameters for customization
+- Creates and links private DNS zones for private endpoints
+- Outputs resource IDs and connection strings for use in application code
+- Include tagging for cost management and governance
+- Retrieve and use the current IP address for local deployment restrictions (Landing Zone already has a rule for the current IP address)
 
 ### Output Expectations & Critical Files
 - Infrastructure templates: `infra/modules/*.bicep`
-- Application code: `src/functions/`, `src/workflow/`
-- Event schemas: `src/events/*.json`
+- Application code: `src/functions/`, `src/workflow/`, `src/apim/`
+- Event schemas: `src/eventgrid/`
 - Scripts: `/scripts/*.ps1`
 - `/infra/main.bicep`: Main infrastructure template
 - `/workflow/*/workflow.json`: Logic App workflow definitions
-- `/infra/modules/gateway/policies/api-policy.xml`: API Management policy template
+- `/infra/modules/`*: Bicep modules for reusable infrastructure components
+- `/tests/`: Automated tests for integration scenarios
+- `.github/workflows/`: CI/CD pipeline definitions
 
 ### Security Model
 - Managed identities for all service-to-service communication
-- Private endpoints for database and Logic Apps connectivity
+- Private endpoints for all connectivity, where applicable
 - Key Vault for secrets management with role-based access
 - API Management handles external authentication and rate limiting
-
-### Common Issues
-- **Private DNS Zone Conflicts**: Cannot update existing private DNS zone configurations - delete and recreate if needed
-- **Logic Apps Deployment**: Ensure file share is created before Logic Apps deployment
-- **API Management Policies**: Use single quotes within double-quoted conditions in XML policies
 
 ## Code Review & Collaboration
 - Open pull requests for all changes; no direct commits to main.
