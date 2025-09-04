@@ -14,7 +14,7 @@ The development workflow follows a structured approach using specialized agents:
 flowchart TD
     A[🕵️ Discovery Analyst<br/>Generates IDD] --> B[📋 Solution Architect<br/>Creates IRD]
     B --> C[🔧 Agent<br/>Creates dev-plan, creating and assigning issues to GitHub Coding Agent]
-    B --> D[🔧 Integration Developer<br/>Develops code using AZD templates and Bicep]
+    B --> D[🔧 Integration Developer<br/>Develops code using Bicep and C#]
     C --> E[🔍 Test Engineer<br/>Creates tests, executes & reports the results]
     E --> F[📚 Documentation Specialist<br/>Generates Final Docs]
     D --> G[🔍 Test Engineer<br/>Creates tests, executes & reports the results]
@@ -25,7 +25,7 @@ flowchart TD
 
 1. **Discovery Analyst** - Performs automated discovery of Azure Integration Landing Zones and generates Integration Discovery Documents (IDD)
 2. **Solution Architect** - Creates Integration Requirement Documents (IRD) based on business needs and technical requirements
-3. **Implementation Agent** - Develops integration code using AZD templates and Bicep, manages GitHub issues
+3. **Implementation Agent** - Develops integration code using C# and Bicep, manages GitHub issues
 4. **Test Engineer** - Creates and executes tests based on requirements and implementation
 5. **Documentation Specialist** - Generates comprehensive documentation for the integration solution
 
